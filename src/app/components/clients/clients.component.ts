@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ClientService } from '../../services/client.service';
+import { Client } from '../../models/client';
 
 @Component({
   selector: 'app-clients',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsComponent implements OnInit {
 
-  constructor() { }
+    clients: Client[];
+    totalOwed:number;
+  constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.getClients();
+    this.sumOwed();
+  }
+
+  getClients(){
+     this.clientService.getClients().subscribe(clients =>{
+      this.clients = clients;
+       this.sumOwed();
+    });
+  }
+  sumOwed(){
+   
+    const total = this.clients.reduce((total,client) =>{
+          return this.totalOwed = total+client.balance;
+          }, 0);
+   
   }
 
 }
