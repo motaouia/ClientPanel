@@ -28,4 +28,14 @@ export class ClientService {
     );
       return this.clients;
   }
+
+  add(value: Client){
+    this.clientsCollection.add(value);
+    
+  }
+
+  getClientById(id: string) {
+    return this.afs.collection('clients').doc<Client>(id).valueChanges();
+  }
+
 }

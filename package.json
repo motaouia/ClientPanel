@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~9.0.7",
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
+    "angular2-flash-messages": "^3.0.1",
     "angularfire2": "^5.4.2",
     "bootstrap": "4.0.0-beta.2",
     "firebase": "^7.13.2",

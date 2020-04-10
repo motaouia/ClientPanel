@@ -15,7 +15,6 @@ export class ClientsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClients();
-    this.sumOwed();
   }
 
   getClients(){

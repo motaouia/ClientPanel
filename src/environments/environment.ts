@@ -6,14 +6,14 @@ export const environment = {
   production: false,
   //contnet of firebaseConfig
     firebase : {
-    apiKey: "XXXXXXX",
-    authDomain: "clientpanelprod-a63fa.firebaseapp.com",
-    databaseURL: "https://clientpanelprod-a63fa.firebaseio.com",
-    projectId: "clientpanelprod-a63fa",
-    storageBucket: "clientpanelprod-a63fa.appspot.com",
-    messagingSenderId: "XXXXXXX",
-    appId: "XXXXXXX",
-    measurementId: "XXXXXXX"
+      apiKey: "XXXXXX",
+      authDomain: "clientpanelprod-a63fa.firebaseapp.com",
+      databaseURL: "https://clientpanelprod-a63fa.firebaseio.com",
+      projectId: "clientpanelprod-a63fa",
+      storageBucket: "clientpanelprod-a63fa.appspot.com",
+      messagingSenderId: "XXXXXX",
+      appId: "1:XXXXXX",
+      measurementId: "GXXXXXX"
   }
 };
 
