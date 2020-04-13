@@ -31,11 +31,19 @@ export class ClientService {
 
   add(value: Client){
     this.clientsCollection.add(value);
-    
   }
 
   getClientById(id: string) {
     return this.afs.collection('clients').doc<Client>(id).valueChanges();
   }
 
+ updateClient(id: string, client: Client) {
+    this.clientDoc = this.afs.doc<Client>(`clients/${id}`);
+    this.clientDoc.update(client);
+  }
+  
+  deleteClient(id: string) {
+    this.clientDoc = this.afs.doc<Client>(`clients/${id}`);
+    this.clientDoc.delete();
+  }
 }
