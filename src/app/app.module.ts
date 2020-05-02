@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import{ AppRoutingModule } from './app-routing/app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import{ FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
@@ -23,6 +23,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { environment } from '../environments/environment';
 import { ClientService } from './services/client.service';
+import { AuthService } from './services/auth.service'
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ClientService } from './services/client.service';
     FlashMessagesModule.forRoot(),
   ],
   providers: [
-    ClientService
+    ClientService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

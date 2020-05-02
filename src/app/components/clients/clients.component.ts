@@ -20,7 +20,7 @@ export class ClientsComponent implements OnInit {
 
   getClients(){
      this.clientService.getClients().subscribe(clients =>{
-      this.clients = clients;
+       this.clients = clients;
        this.sumOwed();
     });
   }
