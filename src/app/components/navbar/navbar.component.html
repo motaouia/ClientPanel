@@ -13,12 +13,21 @@
         </ul>
 
         <ul class="navbar-nav ml-auto">
-          <ul class="nav item">
-            <a routerLink="/register" class="nav-link">Register</a>
-          </ul>
-          <ul class="nav item">
+          <li *ngIf="!isLoggedIn" class="nav-item">
+            <a routerLink="/register" class="nav-link" [hidden]="!allowRegistration">Register</a>
+          </li>
+          <li *ngIf="!isLoggedIn" class="nav-item">
             <a routerLink="/login" class="nav-link">Login</a>
-          </ul>
+          </li>
+          <li *ngIf="isLoggedIn" class="nav-item">
+            <a href="#" class="nav-link">{{loggedInUser}}</a>
+          </li>
+          <li *ngIf="isLoggedIn" class="nav-item">
+            <a routerLink="/settings" class="nav-link">Settings</a>
+          </li>
+          <li *ngIf="isLoggedIn" class="nav-item">
+            <a href="#" (click)="onLogOutClick()" class="nav-link">LogOut</a>
+          </li>
         </ul>
 
 

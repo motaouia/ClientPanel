@@ -3,6 +3,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import {ClientService } from '../../services/client.service';
 import { Client } from '../../models/client';
 import { Router } from '@angular/router';
+import { SettingsService } from '../../services/settings.service';
  
 @Component({
   selector: 'app-add-client',
@@ -19,20 +20,23 @@ export class AddClientComponent implements OnInit {
        balance: 0
 
   };
-  disableBalanceonAdd: boolean = true;
-
+  disableBalanceonAdd: boolean = false;
+  
   @ViewChild('clientForm') form: any;
 
   constructor(private flashMessagesService: FlashMessagesService,
               private clientService: ClientService,
-              private router: Router) { }
+              private router: Router,
+              private settingsService: SettingsService) { }
 
   ngOnInit(): void {
+      this.disableBalanceonAdd = this.settingsService.getSettings().disaleBalanceOnAdd;
         // 1st parameter is a flash message text
         // 2nd parameter is optional. You can pass object with options.
         this.flashMessagesService.show('We are in about component!', { cssClass: 'alert-success', timeout: 1000 });
     }
     onSubmit({value, valid}: {value: Client, valid: boolean}){
+     //
       if(this.disableBalanceonAdd){
         value.balance = 0;
       }

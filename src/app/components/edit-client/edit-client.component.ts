@@ -3,6 +3,7 @@ import { ClientService } from '../../services/client.service';
 import { Client } from '../../models/Client';
 import{ FlashMessagesService } from 'angular2-flash-messages';
 import {Router, ActivatedRoute, Params} from '@angular/router';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-edit-client',
@@ -14,16 +15,18 @@ export class EditClientComponent implements OnInit {
   client: Client;
   id: string;
   hasBalance: boolean = false;
-  disableBalanceonEdit: boolean = false
+  disableBalanceonEdit: boolean;
 
   constructor(private clientService: ClientService,
-           private flashMessagesService: FlashMessagesService,
-           private router: Router,
-          private activatedRoute: ActivatedRoute
+              private flashMessagesService: FlashMessagesService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private settingsService: SettingsService
 
   ) { }
 
   ngOnInit(): void {
+    this.disableBalanceonEdit = this.settingsService.getSettings().disableBalanceOnEdit;
      //First Step : it to get the ID Client from Url query
      this.id = this.activatedRoute.snapshot.params['id'];
      //Second Step is to get the details of this client using the Id:
